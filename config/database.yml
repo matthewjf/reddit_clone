@@ -8,4 +8,17 @@ default: &default
   adapter: postgresql
   pool: 5
   timeout: 5000
-  databas: demo_test_development
+
+development:
+  <<: *default
+  database: reddit_clone_development
+
+test:
+  <<: *default
+  database: reddit_clone_test
+
+production:
+  <<: *default
+  database: reddit_clone_production
+  username: reddit_clone
+  password: <%= ENV['REDDIT_CLONE_DATABASE_PASSWORD'] %>

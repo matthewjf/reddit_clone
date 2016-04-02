@@ -18,12 +18,4 @@ class Sub < ActiveRecord::Base
     primary_key: :id,
     class_name: :User
 
-  has_many :postsubs,
-    foreign_key: :post_id,
-    primary_key: :id,
-    class_name: :Postsub
-
-  has_many :posts,
-    through: :postsubs,
-    source: :post
 end
