@@ -12,17 +12,20 @@
   </label>
   <br>
 
-  <% @subs.each do |sub| %>
-    <input type="checkbox"
-      name="post[sub_ids][]"
-      value="<%= sub.id %>"
-      <%= "checked" if @post.subs.include?(sub) || (sub.id == source_sub.id) %>>
-      <%= sub.title %><br>
-  <% end %>
+  <label>
+    Subforum
+    <% @subs.each do |sub| %>
+      <input type="checkbox"
+        name="post[sub_ids][]"
+        value="<%= sub.id %>"
+        <%= "checked" if @post.subs.include?(sub) %>>
+        <%= sub.title %><br>
+    <% end %>
+  </label>
 
   <label>
-    Description
-    <textarea name="post[description]"><%= post.description %></textarea>
+    Content
+    <textarea name="post[content]"><%= post.content %></textarea>
   </label>
   <br>
 

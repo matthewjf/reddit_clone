@@ -13,8 +13,10 @@ class PostsController < ApplicationController
   end
 
   def create
+    @subs = Sub.all
     @post = Post.new(post_params)
     @post.author = current_user
+    @post.subs << Sub.where(id: params[:post][:sub_ids])
 
     if @post.save
       flash[:success] = "post created"

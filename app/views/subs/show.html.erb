@@ -1,11 +1,14 @@
 <%= link_to "edit", edit_sub_url(@sub) %> |
 <%= link_to "destroy", sub_url(@sub), method: :delete %>
 <br>
-<%= link_to "create post", new_post_url, source_sub: @sub.id %>
-<h2><%= @sub.title %></h2>
+<%= link_to "create post", new_post_url %>
+<h1><%= @sub.title %></h1>
 
-<h4>Moderator</h4>
+<b>Moderator</b>
 <%= @sub.moderator.username %>
 <br>
-<h4>Description</h4>
+<b>Description</b>
 <%= @sub.description %>
+
+<h3>Posts</h3>
+<%= render @sub.posts %>

@@ -6,17 +6,19 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<header class='navbar navbar-inverse'>
-  <%= link_to 'home', root_url %>
-  <ul class='nav nav-bar nav-right'>
-    <% if logged_in? %>
-      <li><%= link_to 'account', user_url(current_user) %></li>
-      <li><%= link_to 'logout', session_url, method: :delete %></li>
-    <% else %>
-      <li><%= link_to 'sign up', new_user_url %></li>
-      <li><%= link_to 'login', new_session_url %></li>
-      <% end %>
-  </ul>
+<header class='navbar navbar-inverse navbar-fixed-top'>
+  <div><%= link_to 'home', root_url, id: "logo" %></div>
+  <nav>
+    <ul class='nav navbar-nav navbar-right'>
+      <% if logged_in? %>
+        <li><%= link_to 'account', user_url(current_user) %></li>
+        <li><%= link_to 'logout', session_url, method: :delete %></li>
+      <% else %>
+        <li><%= link_to 'sign up', new_user_url %></li>
+        <li><%= link_to 'login', new_session_url %></li>
+        <% end %>
+    </ul>
+  </nav>
 </header>
 <body>
 

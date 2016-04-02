@@ -18,4 +18,5 @@ class Sub < ActiveRecord::Base
     primary_key: :id,
     class_name: :User
 
+  has_and_belongs_to_many :posts
 end

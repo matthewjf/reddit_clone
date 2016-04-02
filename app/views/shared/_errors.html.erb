@@ -1,8 +1,12 @@
 <% if flash[:errors] %>
-  <div class="alert-error">there are <%= flash[:errors].length %> errors</div>
-  <ul>
-    <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
+  <div id='error_explanation'>
+    <div class="alert alert-danger">
+      <%= pluralize(flash[:errors].length,'error') %>
+    </div>
+    <ul>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>

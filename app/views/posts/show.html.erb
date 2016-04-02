@@ -1,0 +1,13 @@
+<%= link_to "edit", edit_post_url(@post) %> |
+<%= link_to "destroy", post_url(@post), method: :delete %>
+<br>
+subforum:
+<% @post.subs.each do |sub| %>
+  <%= link_to "#{sub.title}", sub_url(sub) %>
+<% end %>
+<h1><%= @post.title %></h1>
+author: <%= @post.author.username %>
+<br>
+url: <%= @post.url %>
+<br>
+content: <%= @post.content %>
