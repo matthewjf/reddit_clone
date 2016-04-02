@@ -1,0 +1,23 @@
+<% action = (user.persisted? ? user_url(user) : users_url) %>
+<% method = (user.persisted? ? :patch : :post) %>
+
+<form action="<%= action %>" method="post">
+  <input type="hidden" name="_method" value="<%= method %>">
+
+  <%= render "shared/auth_token" %>
+
+  <label>
+    Username
+    <input type="text" name="user[username]" value="<%= user.username %>">
+  </label>
+  <br>
+
+  <label>
+    Password
+    <input type="password" name="user[password]">
+  </label>
+  <br>
+
+  <% stext = (user.persisted? ? 'update' : 'create') %>
+  <input type="submit" value= "<%= stext %>"  class="btn btn-primary">
+</form>
